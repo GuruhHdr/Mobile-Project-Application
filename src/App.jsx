@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaSun, FaMoon } from "react-icons/fa"; // Import ikon Sun dan Moon
+import { FaSun, FaMoon } from "react-icons/fa"; 
 
 const Button = (props) => {
   const { children = "default", variant = "bg-black", onClick, disabled = false } = props;
@@ -13,6 +13,19 @@ const Button = (props) => {
     >
       {children}
     </button>
+  );
+};
+
+const Card = ({ title, description, imageUrl, isDarkMode, onClick }) => {
+  return (
+    <div
+      onClick={onClick} // Handle click event
+      className={`p-6 rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105 ${isDarkMode ? "bg-gray-700 text-white" : "bg-white text-gray-800"} transition-all duration-500 ease-in-out`}
+    >
+      <img src={imageUrl} alt={title} className="w-full h-48 object-cover rounded-md mb-4" />
+      <h2 className="text-xl font-semibold mb-4">{title}</h2>
+      <p>{description}</p>
+    </div>
   );
 };
 
@@ -42,6 +55,11 @@ function App() {
   // Fungsi untuk toggle mode gelap/terang
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
+  };
+
+  // Fungsi ketika Card diklik
+  const handleCardClick = (title) => {
+    alert(`Anda mengklik ${title}`);
   };
 
   // Menentukan gaya konten berdasarkan mode
@@ -91,17 +109,35 @@ function App() {
               ? "Anda sedang menggunakan mode gelap. Ini lebih nyaman untuk mata di malam hari."
               : "Anda sedang menggunakan mode terang. Cocok untuk lingkungan dengan banyak cahaya."}
           </p>
-          <div className="flex gap-3">
-            <Button variant={isDarkMode ? "bg-purple-600" : "bg-red-700"} onClick={() => console.log("Login button clicked!")}>
-              {isDarkMode ? "Masuk (Gelap)" : "Masuk (Terang)"}
-            </Button>
-            <Button variant={isDarkMode ? "bg-green-600" : "bg-slate-700"} onClick={() => console.log("Guruh button clicked!")}>
-              {isDarkMode ? "Guruh (Gelap)" : "Guruh (Terang)"}
-            </Button>
-            <Button variant={isDarkMode ? "bg-orange-600" : "bg-black"} onClick={() => console.log("Utama button clicked!")}>
-              {isDarkMode ? "Utama (Gelap)" : "Utama (Terang)"}
-            </Button>
-            <Button disabled>Disabled</Button> {/* Tombol ini dinonaktifkan */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Card
+              title="Produk 1"
+              description="Deskripsi produk 1 yang menarik."
+              imageUrl="https://via.placeholder.com/300"
+              isDarkMode={isDarkMode}
+              onClick={() => handleCardClick("Produk 1")}
+            />
+            <Card
+              title="Produk 2"
+              description="Deskripsi produk 2 yang menarik."
+              imageUrl="https://via.placeholder.com/300"
+              isDarkMode={isDarkMode}
+              onClick={() => handleCardClick("Produk 2")}
+            />
+            <Card
+              title="Produk 3"
+              description="Deskripsi produk 3 yang menarik."
+              imageUrl="https://via.placeholder.com/300"
+              isDarkMode={isDarkMode}
+              onClick={() => handleCardClick("Produk 3")}
+            />
+            <Card
+              title="Produk 4"
+              description="Deskripsi produk 4 yang menarik."
+              imageUrl="https://via.placeholder.com/300"
+              isDarkMode={isDarkMode}
+              onClick={() => handleCardClick("Produk 4")}
+            />
           </div>
         </div>
       </div>
