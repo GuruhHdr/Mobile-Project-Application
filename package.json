@@ -1,4 +1,5 @@
 {
+  "homepage": "https://guruhhdr.github.io/Mobile-Project-Application",
   "name": "latihan1",
   "private": true,
   "version": "0.0.0",
@@ -9,8 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "homepage": "https://GuruhHdr.github.io/Mobile-Project-Application"
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -33,8 +33,4 @@
     "tailwindcss": "^3.4.13",
     "vite": "^5.4.8"
   }
-   
-
-  
 }
-
