@@ -1,15 +1,16 @@
 {
-  "homepage": "https://guruhhdr.github.io/Mobile-Project-Application",
+  "homepage": "https://guruhhdr.github.io/Mobile-Project-Application/",
   "name": "latihan1",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
 
   },
   "dependencies": {
